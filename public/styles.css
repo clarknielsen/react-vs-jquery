@@ -1,0 +1,13 @@
+form {
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
+}
+
+img {
+  vertical-align: middle;
+}
+
+strong {
+  margin-left: 10px;
+}
