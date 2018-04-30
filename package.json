@@ -1,9 +1,11 @@
 {
   "name": "react-vs-jquery",
+  "homepage": "https://clarknielsen.github.io/react-vs-jquery",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "gh-pages": "^1.1.0",
     "jquery": "^3.3.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
@@ -13,6 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
