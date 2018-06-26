@@ -40,7 +40,7 @@ class App extends Component {
   jQueryChangeHandler = (results, val) => {
     $("#test2 .people").empty();
       // filter down based on input value
-      let filtered = results.filter(person => {
+      const filtered = results.filter(person => {
         return (`${person.name.first} ${person.name.last}`).indexOf(val) !== -1;
       });
       $(".peopleCountJq").text(filtered.length + ' found');
