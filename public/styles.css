@@ -1,6 +1,8 @@
 form {
   display: inline-block;
-  width: 50%;
+  width: 47%;
+  margin: 3px;
+  padding: 10px 0 10px 5px;
   vertical-align: top;
 }
 
@@ -8,6 +10,15 @@ img {
   vertical-align: middle;
 }
 
-strong {
-  margin-left: 10px;
+.people {
+  display: flex;
+  flex-wrap: wrap;
+}
+.people p {
+  height: 60px;
+  justify-content: space-evenly;
+  width: 70px;
+}
+.hidden {
+  display: none;
 }
