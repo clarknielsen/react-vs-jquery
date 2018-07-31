@@ -11,3 +11,7 @@ img {
 strong {
   margin-left: 10px;
 }
+
+input {
+  padding: 3px;
+}

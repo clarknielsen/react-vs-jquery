@@ -9,8 +9,11 @@ class App extends Component {
   };
 
   componentDidMount() {
+    // allow overriding number of results based on query string
+    let results = window.location.search.replace("?limit=", "") || 5000;
+
     // get random user data
-    axios.get("https://randomuser.me/api/?results=5000&nat=us").then((res) => {
+    axios.get(`https://randomuser.me/api/?results=${results}&nat=us`).then((res) => {
       this.setState({
         people: res.data.results
       });
@@ -37,6 +40,7 @@ class App extends Component {
 
         let img = $("<img>").attr("src", filtered[i].picture.thumbnail).attr("alt", name);
         let strong = $("<strong>").text(name);
+        
         $("#test2 .people").append($("<p>").append(img).append(strong));
       }
     });
@@ -52,11 +56,16 @@ class App extends Component {
     });
   };
 
+  cancelSubmit = (e) => {
+    // don't accidentally reload page
+    e.preventDefault();
+  };
+
   render() {
     // render two forms, one based on react state and one that's hard-coded for jQuery to populate
     return (
       <div>
-        <form id="test1">
+        <form id="test1" onSubmit={this.cancelSubmit}>
           <input 
             className="input" 
             type="text" 
@@ -75,7 +84,7 @@ class App extends Component {
 
                 // convert into jsx
                 return (
-                  <p key={p.dob}>
+                  <p key={p.id.value}>
                     <img src={p.picture.thumbnail} alt={name} />
                     <strong>{name}</strong>
                   </p>
@@ -85,7 +94,7 @@ class App extends Component {
           </div>
         </form>
 
-        <form id="test2">
+        <form id="test2" onSubmit={this.cancelSubmit}>
           <input 
             type="text" 
             className="input" 
